@@ -1,4 +1,4 @@
-let product = [
+let products = [
     {
         sku: "F-001",
         name: "strawberry",
@@ -35,24 +35,25 @@ let product = [
         inventory: 50
     }
 ];
-for (let product in product) {
-    let discount
+
+for (let product of products) {
+    let discount=0;
 
     switch (product.category) {
         case "fruit":
-            discount = 0.05;
+            discount = .05;
             break;
         case "vegetable":
-            discount = 0.1;
+            discount = .1;
             break;
         case "dairy":
-            discount = 0.1;
+            discount = .1;
             break;
             default: 0;
                 discount = 0;
     };
-    let promoPrice = product.price - (product.price * discount);
+    let promoPrice = product.price * (1 - discount);
     product.promoPrice = promoPrice
 }
 
-console.log(product)
+console.log(products)
